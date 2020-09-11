@@ -41,7 +41,7 @@ namespace gps_crm
                             this.Tag = rdr;
                         }
                         this.Hide();
-                        if (rdr[5].ToString() == "1")
+                        if (rdr[4].ToString() == "1")
                         {
                             adminForm myForm = new adminForm(this);
                             myForm.Closed += (s, args) => this.Close();

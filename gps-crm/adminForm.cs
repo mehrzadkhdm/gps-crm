@@ -23,5 +23,16 @@ namespace gps_crm
         {
 
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form form = new addUser();
+            form.ShowDialog();
+        }
     }
 }
