@@ -143,7 +143,6 @@
             // 
             // buttonCreate
             // 
-            this.buttonCreate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonCreate.Location = new System.Drawing.Point(401, 368);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(75, 23);
@@ -170,6 +169,7 @@
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label1);
             this.Name = "addUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add user";
             this.Load += new System.EventHandler(this.addUser_Load);
             this.ResumeLayout(false);

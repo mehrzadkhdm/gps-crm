@@ -26,6 +26,7 @@ namespace gps_crm
         private void addUser_Load(object sender, EventArgs e)
         {
             buttonCreate.Enabled = false;
+            buttonCreate.DialogResult = DialogResult.None;
         }
 
         private void checkInput(object sender, EventArgs e)
@@ -37,6 +38,7 @@ namespace gps_crm
             if (textBoxRepeat.Text.Trim() == string.Empty) return;
             if (textBoxPassword.Text.Trim() != textBoxRepeat.Text.Trim()) return;
             buttonCreate.Enabled = true;
+
 
         }
 
@@ -57,8 +59,10 @@ namespace gps_crm
                     {
                         int rows = cmd.ExecuteNonQuery();
                         if (rows > 0)
+                        {
                             MessageBox.Show("User created successfully");
-                    }
+                            buttonCreate.DialogResult = DialogResult.OK;
+                        }
                     catch
                     {
                         MessageBox.Show("Error in creating user");
