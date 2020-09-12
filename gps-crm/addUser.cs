@@ -63,6 +63,7 @@ namespace gps_crm
                             MessageBox.Show("User created successfully");
                             buttonCreate.DialogResult = DialogResult.OK;
                         }
+                    }
                     catch
                     {
                         MessageBox.Show("Error in creating user");
