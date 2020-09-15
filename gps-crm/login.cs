@@ -20,14 +20,14 @@ namespace gps_crm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            byte[] csb = Convert.FromBase64String( gps_crm.Properties.Resources.database);
+            byte[] csb = Convert.FromBase64String(gps_crm.Properties.Resources.database);
             string cs = Encoding.Default.GetString(csb);
             using (var con = new MySqlConnection(cs))
             {
                 con.Open();
-               
+
                 string sql = string.Format("SELECT * FROM `gps-crm`.agents WHERE name='{0}' AND password='{1}'",
-                    textBoxUser.Text, Convert.ToBase64String( Encoding .UTF8.GetBytes(textBoxPass.Text)));
+                    textBoxUser.Text, Convert.ToBase64String(Encoding.UTF8.GetBytes(textBoxPass.Text)));
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.ExecuteNonQuery();
@@ -52,6 +52,32 @@ namespace gps_crm
                 }
             }
 
+        }
+
+        private void textBoxUser_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                textBoxPass.Focus();
+        }
+
+        private void textBoxPass_Enter(object sender, EventArgs e)
+        {
+            textBoxPass.SelectAll();
+        }
+
+        private void textBoxPass_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.Focus();
+                button1_Click(sender, e);
+            }
+
+        }
+
+        private void textBoxUser_Enter(object sender, EventArgs e)
+        {
+            textBoxUser.SelectAll();
         }
     }
 }

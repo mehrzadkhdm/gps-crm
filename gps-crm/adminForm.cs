@@ -14,6 +14,9 @@ namespace gps_crm
     public partial class adminForm : Form
     {
         public Form loginForm;
+        static byte[] csb = Convert.FromBase64String(gps_crm.Properties.Resources.database);
+        public string cs = Encoding.Default.GetString(csb);
+
         public adminForm(Form form)
         {
             InitializeComponent();
@@ -22,8 +25,30 @@ namespace gps_crm
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            byte[] csb = Convert.FromBase64String(gps_crm.Properties.Resources.database);
-            string cs = Encoding.Default.GetString(csb);
+            updateRows();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form form = new addUser();
+            form.ShowDialog();
+        }
+
+        private void addToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Form form = new addUser();
+            form.ShowDialog();
+        }
+        private void updateRows()
+        {
+            //byte[] csb = Convert.FromBase64String(gps_crm.Properties.Resources.database);
+            //string cs = Encoding.Default.GetString(csb);
+            dataGridView1.Rows.Clear();
             using (var con = new MySqlConnection(cs))
             {
                 con.Open();
@@ -39,6 +64,7 @@ namespace gps_crm
                             return;
                         while (rdr.Read())
                         {
+                            dataGridView1.Rows.Add(rdr[0], rdr[1]);
                             //Datagrid
                         }
                     }
@@ -47,15 +73,23 @@ namespace gps_crm
 
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
-        }
 
-        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Form form = new addUser();
-            form.ShowDialog();
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                using (var con = new MySqlConnection(cs))
+                {
+                    con.Open();
+
+                    string sql = string.Format("DELETE FROM `gps-crm`.agents WHERE name ='{0}' AND role=0", row.Cells[0].Value.ToString());
+                    using (var cmd = new MySqlCommand(sql, con))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            updateRows();
         }
     }
 }

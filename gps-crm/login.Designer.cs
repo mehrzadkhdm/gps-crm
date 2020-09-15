@@ -44,6 +44,8 @@
             this.textBoxUser.Size = new System.Drawing.Size(216, 26);
             this.textBoxUser.TabIndex = 0;
             this.textBoxUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxUser.Enter += new System.EventHandler(this.textBoxUser_Enter);
+            this.textBoxUser.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxUser_KeyUp);
             // 
             // textBoxPass
             // 
@@ -55,6 +57,8 @@
             this.textBoxPass.Size = new System.Drawing.Size(216, 26);
             this.textBoxPass.TabIndex = 1;
             this.textBoxPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxPass.Enter += new System.EventHandler(this.textBoxPass_Enter);
+            this.textBoxPass.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxPass_KeyUp);
             // 
             // button1
             // 

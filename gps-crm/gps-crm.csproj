@@ -39,6 +39,9 @@
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="HTMLEditor, Version=1.6.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zoople.HTMLEditor.1.6.1.1\lib\net472\HTMLEditor.dll</HintPath>
+    </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
     </Reference>
@@ -47,6 +50,9 @@
     </Reference>
     <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.21.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.21\lib\net48\MySql.Data.dll</HintPath>
@@ -112,6 +118,12 @@
     <Compile Include="adminForm.Designer.cs">
       <DependentUpon>adminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="htmlEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="htmlEditor.Designer.cs">
+      <DependentUpon>htmlEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="adminForm.resx">
       <DependentUpon>adminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="htmlEditor.resx">
+      <DependentUpon>htmlEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
@@ -153,9 +168,50 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\bold.bmp" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\GPSData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\italic.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\underscore.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\color.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backcolor.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\link.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lj.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cj.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rj.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fj.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ol.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uol.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\outdent.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\indent.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
