@@ -91,5 +91,17 @@ namespace gps_crm
             }
             updateRows();
         }
+
+        private void editToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+
+                Form form = new viewUser(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString());
+                form.ShowDialog();
+            }
+            updateRows();
+        }
+        
     }
 }
