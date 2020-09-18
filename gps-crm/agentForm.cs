@@ -11,16 +11,21 @@ using System.Windows.Forms;
 
 namespace gps_crm
 {
-    public partial class adminForm : Form
+    public partial class agentForm : Form
     {
         public Form loginForm;
+        public string myEmail = "";
         static byte[] csb = Convert.FromBase64String(gps_crm.Properties.Resources.database);
         public string cs = Encoding.Default.GetString(csb);
 
-        public adminForm(Form form)
+        public agentForm(Form form)
         {
             InitializeComponent();
             loginForm = form;
+            MySqlDataReader rdr = (MySqlDataReader)loginForm.Tag;
+            myEmail = rdr[1].ToString();
+            Tag = myEmail;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,16 +40,16 @@ namespace gps_crm
 
         private void addToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form form = new addUser();
+            Form form = new addClient(this);
             form.ShowDialog();
         }
 
         private void addToolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            Form form = new addUser();
+            Form form = new addClient(this);
             DialogResult result = form.ShowDialog();
-            if(result==DialogResult.OK)
-                updateRows();
+            //if(result==DialogResult.OK)
+            updateRows();
         }
         private void updateRows()
         {
@@ -55,7 +60,7 @@ namespace gps_crm
             {
                 con.Open();
 
-                string sql = string.Format("SELECT * FROM `gps-crm`.agents");
+                string sql = string.Format("SELECT * FROM `gps-crm`.clients WHERE agentEmail = '{0}'", myEmail);
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.ExecuteNonQuery();
@@ -66,7 +71,7 @@ namespace gps_crm
                             return;
                         while (rdr.Read())
                         {
-                            dataGridView1.Rows.Add(rdr[0], rdr[1]);
+                            dataGridView1.Rows.Add(rdr[0], rdr[1],rdr[2], rdr[3], rdr[4], rdr[5], rdr[6]);
                             //Datagrid
                         }
                     }
@@ -77,7 +82,7 @@ namespace gps_crm
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result= MessageBox.Show("Do you want to delete agent/admin ?", "Delete", MessageBoxButtons.OKCancel);
+            DialogResult result = MessageBox.Show("Do you want to delete client ?", "Delete", MessageBoxButtons.OKCancel);
             if (result == DialogResult.Cancel)
                 return;
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
@@ -86,7 +91,7 @@ namespace gps_crm
                 {
                     con.Open();
 
-                    string sql = string.Format("DELETE FROM `gps-crm`.agents WHERE name ='{0}'", row.Cells[0].Value.ToString());
+                    string sql = string.Format("DELETE FROM `gps-crm`.clients WHERE email ='{0}'", row.Cells[2].Value.ToString());
                     using (var cmd = new MySqlCommand(sql, con))
                     {
                         cmd.ExecuteNonQuery();
@@ -101,11 +106,19 @@ namespace gps_crm
             foreach (DataGridViewRow row in dataGridView1.SelectedRows)
             {
 
-                Form form = new viewUser(row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString());
+                Form form = new viewClient(row.Cells[0].Value.ToString(), row.Cells[2].Value.ToString());
                 form.ShowDialog();
             }
             updateRows();
         }
-        
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new addClient(this);
+            DialogResult result = form.ShowDialog();
+            //if(result==DialogResult.OK)
+            updateRows();
+
+        }
     }
 }

@@ -106,6 +106,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addClient.Designer.cs">
+      <DependentUpon>addClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agentForm.Designer.cs">
+      <DependentUpon>agentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewClient.Designer.cs">
+      <DependentUpon>viewClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="viewUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +156,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addClient.resx">
+      <DependentUpon>addClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="agentForm.resx">
+      <DependentUpon>agentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewClient.resx">
+      <DependentUpon>viewClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="viewUser.resx">
       <DependentUpon>viewUser.cs</DependentUpon>
     </EmbeddedResource>

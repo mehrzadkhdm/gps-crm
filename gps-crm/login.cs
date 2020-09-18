@@ -47,6 +47,13 @@ namespace gps_crm
                             myForm.Closed += (s, args) => this.Close();
                             myForm.Show();
                         }
+                        else
+                        {
+                            agentForm myForm = new agentForm(this);
+                            myForm.Closed += (s, args) => this.Close();
+                            myForm.Show();
+
+                        }
                         //dataInfos.Add(new dataInfo(rdr[3].ToString(), rdr[4].ToString(), DateTime.Parse(rdr[5].ToString())));
                     }
                 }

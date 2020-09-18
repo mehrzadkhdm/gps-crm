@@ -28,19 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addUser));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxRepeat = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.signatureHTML = new gps_crm.htmlEditor();
+            this.radioButtonAdmin = new System.Windows.Forms.RadioButton();
+            this.radioButtonAgent = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label1
@@ -77,18 +76,9 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Email";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Signature";
-            // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(108, 276);
+            this.textBoxPassword.Location = new System.Drawing.Point(108, 100);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(194, 20);
@@ -98,7 +88,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 279);
+            this.label4.Location = new System.Drawing.Point(12, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 6;
@@ -106,7 +96,7 @@
             // 
             // textBoxRepeat
             // 
-            this.textBoxRepeat.Location = new System.Drawing.Point(108, 311);
+            this.textBoxRepeat.Location = new System.Drawing.Point(108, 135);
             this.textBoxRepeat.Name = "textBoxRepeat";
             this.textBoxRepeat.PasswordChar = '*';
             this.textBoxRepeat.Size = new System.Drawing.Size(194, 20);
@@ -116,7 +106,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 314);
+            this.label5.Location = new System.Drawing.Point(12, 138);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 13);
             this.label5.TabIndex = 8;
@@ -125,7 +115,7 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(12, 368);
+            this.buttonCancel.Location = new System.Drawing.Point(12, 225);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 10;
@@ -135,7 +125,8 @@
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(506, 368);
+            this.buttonCreate.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.buttonCreate.Location = new System.Drawing.Point(227, 225);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(75, 23);
             this.buttonCreate.TabIndex = 11;
@@ -143,35 +134,41 @@
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
-            // signatureHTML
+            // radioButtonAdmin
             // 
-            this.signatureHTML.BodyBackgroundColor = System.Drawing.Color.White;
-            this.signatureHTML.BodyHtml = null;
-            this.signatureHTML.BodyText = null;
-            this.signatureHTML.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.signatureHTML.DocumentText = resources.GetString("signatureHTML.DocumentText");
-            this.signatureHTML.EditorBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.signatureHTML.EditorForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.signatureHTML.FontSize = gps_crm.FontSize.Three;
-            this.signatureHTML.Html = null;
-            this.signatureHTML.Location = new System.Drawing.Point(108, 101);
-            this.signatureHTML.Name = "signatureHTML";
-            this.signatureHTML.Size = new System.Drawing.Size(473, 162);
-            this.signatureHTML.TabIndex = 12;
+            this.radioButtonAdmin.AutoSize = true;
+            this.radioButtonAdmin.Location = new System.Drawing.Point(175, 174);
+            this.radioButtonAdmin.Name = "radioButtonAdmin";
+            this.radioButtonAdmin.Size = new System.Drawing.Size(54, 17);
+            this.radioButtonAdmin.TabIndex = 12;
+            this.radioButtonAdmin.Text = "Admin";
+            this.radioButtonAdmin.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonAgent
+            // 
+            this.radioButtonAgent.AutoSize = true;
+            this.radioButtonAgent.Checked = true;
+            this.radioButtonAgent.Location = new System.Drawing.Point(249, 174);
+            this.radioButtonAgent.Name = "radioButtonAgent";
+            this.radioButtonAgent.Size = new System.Drawing.Size(53, 17);
+            this.radioButtonAgent.TabIndex = 13;
+            this.radioButtonAgent.TabStop = true;
+            this.radioButtonAgent.Text = "Agent";
+            this.radioButtonAgent.UseVisualStyleBackColor = true;
             // 
             // addUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 403);
-            this.Controls.Add(this.signatureHTML);
+            this.ClientSize = new System.Drawing.Size(338, 260);
+            this.Controls.Add(this.radioButtonAgent);
+            this.Controls.Add(this.radioButtonAdmin);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBoxRepeat);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxName);
@@ -191,13 +188,13 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxRepeat;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonCreate;
-        private htmlEditor signatureHTML;
+        private System.Windows.Forms.RadioButton radioButtonAdmin;
+        private System.Windows.Forms.RadioButton radioButtonAgent;
     }
 }

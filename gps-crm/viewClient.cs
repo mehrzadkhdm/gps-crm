@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace gps_crm
 {
-    public partial class viewUser : Form
+    public partial class viewClient : Form
     {
         public string name;
         public string email;
         static byte[] csb = Convert.FromBase64String(gps_crm.Properties.Resources.database);
         public string cs = Encoding.Default.GetString(csb);
 
-        public viewUser(string n, string e)
+        public viewClient(string n, string e)
         {
             InitializeComponent();
             name = n;
@@ -30,7 +30,7 @@ namespace gps_crm
             Close();
         }
 
-        private void viewUser_Load(object sender, EventArgs e)
+        private void viewClient_Load(object sender, EventArgs e)
         {
             buttonUpdate.Enabled = false;
             buttonUpdate.DialogResult = DialogResult.None;
@@ -38,7 +38,7 @@ namespace gps_crm
             {
                 con.Open();
 
-                string sql = string.Format("SELECT * FROM `gps-crm`.agents WHERE name='{0}' AND email = '{1}'", name, email);
+                string sql = string.Format("SELECT * FROM `gps-crm`.clients WHERE fName='{0}' AND email = '{1}'", name, email);
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.ExecuteNonQuery();
@@ -49,8 +49,12 @@ namespace gps_crm
                             return;
                         while (rdr.Read())
                         {
-                            textBoxName.Text = rdr[0].ToString();
-                            textBoxEmail.Text = rdr[1].ToString();
+                            textBoxfName.Text = rdr[0].ToString();
+                            textBoxlName.Text = rdr[1].ToString();
+                            textBoxEmail.Text = rdr[2].ToString();
+                            textBoxCompany.Text = rdr[3].ToString();
+                            textBoxPhone.Text = rdr[4].ToString();
+                            textBoxCellPhone.Text = rdr[5].ToString();
                         }
                     }
                 }
@@ -60,16 +64,9 @@ namespace gps_crm
 
         private void checkInput(object sender, EventArgs e)
         {
-            if (textBoxName.Text.Trim() == string.Empty) return;
             if (textBoxEmail.Text.Trim() == string.Empty) return;
-            //signatureHTML
-            //if (textBoxSignature.Text.Trim() == string.Empty) return;
-            if (textBoxPassword.Text.Trim() == string.Empty) return;
-            if (textBoxRepeat.Text.Trim() == string.Empty) return;
-            if (textBoxPassword.Text.Trim() != textBoxRepeat.Text.Trim()) return;
+            if (textBoxPhone.Text.Trim() == string.Empty) return;
             buttonUpdate.Enabled = true;
-
-
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
@@ -81,10 +78,10 @@ namespace gps_crm
             {
                 con.Open();
 
-                string sql = string.Format("UPDATE `gps-crm`.agents SET email='{0}', password='{1}' WHERE name = '{2}' ",
-                    textBoxEmail.Text.Trim(),
-                    Convert.ToBase64String(Encoding.UTF8.GetBytes(textBoxPassword.Text.Trim())),
-                    textBoxName.Text.Trim()); ;
+                string sql = string.Format("UPDATE `gps-crm`.clients SET email='{0}', company='{1}', phone='{2}', cellphone='{3}' WHERE fName = '{4}' AND lName='{5}'",
+                    textBoxEmail.Text.Trim(), textBoxCompany.Text.Trim(),
+                    textBoxPhone.Text.Trim(), textBoxCellPhone.Text.Trim(),
+                    textBoxfName.Text.Trim(), textBoxlName.Text.Trim()); 
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     try
@@ -92,14 +89,14 @@ namespace gps_crm
                         int rows = cmd.ExecuteNonQuery();
                         if (rows > 0)
                         {
-                            MessageBox.Show("User updated successfully");
+                            MessageBox.Show("Client updated successfully");
                             buttonUpdate.DialogResult = DialogResult.OK;
                             close = true;
                         }
                     }
                     catch
                     {
-                        MessageBox.Show("Error in updating user");
+                        MessageBox.Show("Error in updating client");
                     }
                 }
             }

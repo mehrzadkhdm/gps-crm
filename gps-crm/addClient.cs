@@ -11,11 +11,13 @@ using System.Windows.Forms;
 
 namespace gps_crm
 {
-    public partial class addUser : Form
+    public partial class addClient : Form
     {
-        public addUser()
+        public Form agentForm;
+        public addClient(Form form)
         {
             InitializeComponent();
+            agentForm = form;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -23,7 +25,7 @@ namespace gps_crm
             Close();
         }
 
-        private void addUser_Load(object sender, EventArgs e)
+        private void addClient_Load(object sender, EventArgs e)
         {
             buttonCreate.Enabled = false;
             buttonCreate.DialogResult = DialogResult.None;
@@ -31,16 +33,11 @@ namespace gps_crm
 
         private void checkInput(object sender, EventArgs e)
         {
-            if (textBoxName.Text.Trim() == string.Empty) return;
+            if (textBoxfName.Text.Trim() == string.Empty) return;
+            if (textBoxlName.Text.Trim() == string.Empty) return;
             if (textBoxEmail.Text.Trim() == string.Empty) return;
-            //signatureHTML
-            //if (textBoxSignature.Text.Trim() == string.Empty) return;
-            if (textBoxPassword.Text.Trim() == string.Empty) return;
-            if (textBoxRepeat.Text.Trim() == string.Empty) return;
-            if (textBoxPassword.Text.Trim() != textBoxRepeat.Text.Trim()) return;
+            if (textBoxPhone.Text.Trim() == string.Empty) return;
             buttonCreate.Enabled = true;
-
-
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
@@ -52,10 +49,10 @@ namespace gps_crm
             {
                 con.Open();
 
-                string sql = string.Format("INSERT INTO  `gps-crm`.agents VALUES ('{0}', '{1}','','{2}', {3})",
-                    textBoxName.Text.Trim(), textBoxEmail.Text.Trim(), 
-                    Convert.ToBase64String(Encoding.UTF8.GetBytes(textBoxPassword.Text.Trim())), 
-                    radioButtonAdmin.Checked? 1:0 );
+                string sql = string.Format("INSERT INTO  `gps-crm`.clients VALUES ('{0}', '{1}','{2}','{3}', '{4}','{5}','{6}')",
+                    textBoxfName.Text.Trim(), textBoxlName.Text.Trim(),textBoxEmail.Text.Trim(), 
+                    textBoxCompany.Text.Trim(), textBoxPhone.Text.Trim(), textBoxCellPhone.Text.Trim(),
+                    agentForm.Tag.ToString());
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     try
