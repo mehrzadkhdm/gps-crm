@@ -112,6 +112,18 @@
     <Compile Include="addClient.Designer.cs">
       <DependentUpon>addClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="addProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addProduct.Designer.cs">
+      <DependentUpon>addProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addQuote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addQuote.Designer.cs">
+      <DependentUpon>addQuote.cs</DependentUpon>
+    </Compile>
     <Compile Include="agentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +135,12 @@
     </Compile>
     <Compile Include="viewClient.Designer.cs">
       <DependentUpon>viewClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewProduct.Designer.cs">
+      <DependentUpon>viewProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="viewUser.cs">
       <SubType>Form</SubType>
@@ -159,11 +177,20 @@
     <EmbeddedResource Include="addClient.resx">
       <DependentUpon>addClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="addProduct.resx">
+      <DependentUpon>addProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addQuote.resx">
+      <DependentUpon>addQuote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="agentForm.resx">
       <DependentUpon>agentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewClient.resx">
       <DependentUpon>viewClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewProduct.resx">
+      <DependentUpon>viewProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewUser.resx">
       <DependentUpon>viewUser.cs</DependentUpon>

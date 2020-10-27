@@ -61,6 +61,11 @@ namespace gps_crm
                 con.Open();
 
                 string sql = string.Format("SELECT * FROM `gps-crm`.clients WHERE agentEmail = '{0}'", myEmail);
+                string search = textBoxSearch.Text.Trim();
+                if (search.Length > 1)
+                {
+                    sql = string.Format("SELECT * FROM `gps-crm`.clients where agentEmail = '{0}' and (fName like '%{1}%' or lName like '%{1}%' or email like '%{1}%')", myEmail, search);
+                }
                 using (var cmd = new MySqlCommand(sql, con))
                 {
                     cmd.ExecuteNonQuery();
@@ -119,6 +124,17 @@ namespace gps_crm
             //if(result==DialogResult.OK)
             updateRows();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBoxSearch.Clear();
+            updateRows();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            updateRows();
         }
     }
 }

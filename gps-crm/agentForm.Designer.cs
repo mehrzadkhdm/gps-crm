@@ -60,11 +60,17 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tabControlClients.SuspendLayout();
             this.tabPageClients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -74,7 +80,7 @@
             this.operationsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(663, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(884, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -111,7 +117,7 @@
             this.editToolStripMenuItem1,
             this.removeToolStripMenuItem});
             this.agentsToolStripMenuItem.Name = "agentsToolStripMenuItem";
-            this.agentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agentsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.agentsToolStripMenuItem.Text = "Settings";
             // 
             // addToolStripMenuItem1
@@ -139,20 +145,20 @@
             this.addToolStripMenuItem,
             this.editToolStripMenuItem});
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.clientsToolStripMenuItem.Text = "Clients";
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // productsToolStripMenuItem
@@ -160,7 +166,7 @@
             this.productsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem2});
             this.productsToolStripMenuItem.Name = "productsToolStripMenuItem";
-            this.productsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.productsToolStripMenuItem.Text = "Products";
             // 
             // addToolStripMenuItem2
@@ -172,7 +178,7 @@
             // quotesToolStripMenuItem
             // 
             this.quotesToolStripMenuItem.Name = "quotesToolStripMenuItem";
-            this.quotesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quotesToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.quotesToolStripMenuItem.Text = "Quotes";
             // 
             // contextMenuStrip1
@@ -182,40 +188,42 @@
             this.editToolStripMenuItem2,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(159, 70);
             // 
             // addToolStripMenuItem3
             // 
             this.addToolStripMenuItem3.Name = "addToolStripMenuItem3";
-            this.addToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem3.Size = new System.Drawing.Size(158, 22);
             this.addToolStripMenuItem3.Text = "Add Client";
             this.addToolStripMenuItem3.Click += new System.EventHandler(this.addToolStripMenuItem3_Click);
             // 
             // editToolStripMenuItem2
             // 
             this.editToolStripMenuItem2.Name = "editToolStripMenuItem2";
-            this.editToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem2.Size = new System.Drawing.Size(158, 22);
             this.editToolStripMenuItem2.Text = "View/Edit Client";
             this.editToolStripMenuItem2.Click += new System.EventHandler(this.editToolStripMenuItem2_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.deleteToolStripMenuItem.Text = "Delete Client";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // tabControlClients
             // 
+            this.tabControlClients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlClients.Controls.Add(this.tabPageClients);
             this.tabControlClients.Controls.Add(this.tabPage2);
             this.tabControlClients.Controls.Add(this.tabPage3);
             this.tabControlClients.Controls.Add(this.tabPage4);
-            this.tabControlClients.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlClients.Location = new System.Drawing.Point(0, 24);
+            this.tabControlClients.Location = new System.Drawing.Point(12, 68);
             this.tabControlClients.Name = "tabControlClients";
             this.tabControlClients.SelectedIndex = 0;
-            this.tabControlClients.Size = new System.Drawing.Size(663, 366);
+            this.tabControlClients.Size = new System.Drawing.Size(860, 481);
             this.tabControlClients.TabIndex = 1;
             // 
             // tabPageClients
@@ -224,9 +232,9 @@
             this.tabPageClients.Location = new System.Drawing.Point(4, 22);
             this.tabPageClients.Name = "tabPageClients";
             this.tabPageClients.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageClients.Size = new System.Drawing.Size(655, 340);
+            this.tabPageClients.Size = new System.Drawing.Size(852, 455);
             this.tabPageClients.TabIndex = 0;
-            this.tabPageClients.Text = "Clients";
+            this.tabPageClients.Text = "My clients";
             this.tabPageClients.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
@@ -250,7 +258,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(649, 334);
+            this.dataGridView1.Size = new System.Drawing.Size(846, 449);
             this.dataGridView1.TabIndex = 0;
             // 
             // ColumnName
@@ -330,11 +338,61 @@
             this.mySqlDataAdapter1.SelectCommand = null;
             this.mySqlDataAdapter1.UpdateCommand = null;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.textBoxSearch);
+            this.panel1.Location = new System.Drawing.Point(12, 27);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(860, 35);
+            this.panel1.TabIndex = 3;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(357, 6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Clear";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(244, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Go";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Search:";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(57, 8);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(181, 20);
+            this.textBoxSearch.TabIndex = 1;
+            // 
             // agentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 390);
+            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControlClients);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -348,6 +406,8 @@
             this.tabControlClients.ResumeLayout(false);
             this.tabPageClients.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,6 +446,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }
 
